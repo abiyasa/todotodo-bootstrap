@@ -1,45 +1,85 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<title>Todo App - Backbone - RequireJs - Thomas Davis</title>
-	<link rel="stylesheet" href="css/todos.css">
+  <meta charset="utf-8">
+  <title>Todo Todo App - Backbone - RequireJs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="description" content="">
+  <meta name="author" content="abiyasa">  
+  
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      
+      #todo-list .done {
+        text-decoration: line-through;
+      }
+  </style>  
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
 
-	<script data-main="js/main" src="js/libs/require/require.js"></script>
+  <script data-main="js/main" src="js/libs/require/require.js"></script>
 </head>
+
 <body>
 
 <div id="todoapp">
-
-      <div class="title">
-        <h1>Todos</h1>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="page-header span8 offset2">
+        <h1>
+          Todo Todo
+          <small>Enough TODO for the rest of your life</small>
+        </h1>
       </div>
-
-      <div class="content">
-
-        <div id="create-todo">
-          <input id="new-todo" placeholder="What needs to be done?" type="text" />
-          <span class="ui-tooltip-top" style="display:none;">Press Enter to save this task</span>
+    </div>
+    
+    <div class="row">
+      <div class="span8 offset2">
+        <div id="create-todo" class="well">
+          <input id="new-todo" placeholder="What needs to be done?" type="text" class="span4"/>
+          <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to save this task</span>            
         </div>
-
-        <div id="todos">
-          <input class="check mark-all-done" type="checkbox"/>
-          <label for="check-all">Mark all as complete</label>
-          <ul id="todo-list"></ul>
-        </div>
-
-        <div id="todo-stats"></div>
-
       </div>
-
     </div>
 
-    <div id="credits">
-        <p>Modularized by
-        <a href="http://backbonetutorials.com">Thomas Davis</a>.
-        Originally by 
-      <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
-      </p>
+    <div class="row">
+      <div class="span8 offset2">
+        <label class="checkbox">
+          <input class="mark-all-done" type="checkbox"/>
+          Mark all as complete
+        </label>
+      </div>
     </div>
+    
+    <div class="row">
+      <div id="todos" class="span8 offset2">
+        <table class="table table-bordered">
+          <tbody id="todo-list"></tbody>
+        </table>
+      </div>
+    </div>
+      
+    <div class="row">
+      <div id="todo-stats" class="span8 offset2" />
+    </div>
+
+    <hr class="span8 offset2" />
+    
+    <!--
+    <div class="row">
+      <div id="credits" class="span8 offset2">
+          <p>Modularized by
+            <a href="http://backbonetutorials.com">Thomas Davis</a>.
+            Originally by 
+          <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.      
+      </div>
+    </div>    
+    -->
+  </div>    
+</div>
+
 
 </body>
 </html>

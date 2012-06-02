@@ -6,17 +6,17 @@ define([
   ], function($, _, Backbone, todosTemplate){
   var TodoView = Backbone.View.extend({
 
-    //... is a list tag.
-    tagName:  "li",
+    //... is a table row tag.
+    tagName:  "tr",
 
     // Cache the template function for a single item.
     template: _.template(todosTemplate),
 
     // The DOM events specific to an item.
     events: {
-      "click .check"              : "toggleDone",
-      "dblclick div.todo-content" : "edit",
-      "click span.todo-destroy"   : "clear",
+      "click .todo-content" : "toggleDone",
+      "click .todo-edit" : "edit",
+      "click .todo-destroy" : "clear",
       "keypress .todo-input"      : "updateOnEnter",
       "blur .todo-input"          : "close"
     },
@@ -44,14 +44,16 @@ define([
 
     // Switch this view into `"editing"` mode, displaying the input field.
     edit: function() {
-      $(this.el).addClass("editing");
+      this.$('.edit-item').removeClass('hidden');
+      this.$('.show-item').addClass('hidden');
       this.input.focus();
     },
 
     // Close the `"editing"` mode, saving changes to the todo.
     close: function() {
       this.model.save({content: this.input.val()});
-      $(this.el).removeClass("editing");
+      this.$('.edit-item').addClass('hidden');
+      this.$('.show-item').removeClass('hidden');      
     },
 
     // If you hit `enter`, we're through editing the item.
