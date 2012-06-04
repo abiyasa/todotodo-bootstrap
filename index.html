@@ -16,6 +16,10 @@
       #todo-list .done {
         text-decoration: line-through;
       }
+      
+      #todo-stats {
+        margin-bottom: 10px;
+      }
   </style>  
   <link rel="stylesheet" href="css/bootstrap-responsive.css">
 
@@ -25,9 +29,9 @@
 <body>
 
 <div id="todoapp">
-  <div class="container-fluid">
+  <div class="container">
     <div class="row">
-      <div class="page-header span8 offset2">
+      <div class="page-header">
         <h1>
           Todo Todo
           <small>Enough TODO for the rest of your life</small>
@@ -36,50 +40,39 @@
     </div>
     
     <div class="row">
-      <div class="span8 offset2">
-        <div id="create-todo" class="well">
-          <input id="new-todo" placeholder="What needs to be done?" type="text" class="span4"/>
-          <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to save this task</span>            
-        </div>
+      <div id="create-todo" class="well">
+        <input id="new-todo" placeholder="What needs to be done?" type="text" class="span8"/>
+        <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to save this task</span>            
       </div>
     </div>
 
     <div class="row">
-      <div class="span8 offset2">
-        <label class="checkbox">
-          <input class="mark-all-done" type="checkbox"/>
-          Mark all as complete
-        </label>
-      </div>
+      <label class="checkbox">
+        <input class="mark-all-done" type="checkbox"/>
+        Mark all as complete
+      </label>
     </div>
     
     <div class="row">
-      <div id="todos" class="span8 offset2">
-        <table class="table table-bordered">
-          <tbody id="todo-list"></tbody>
-        </table>
-      </div>
-    </div>
-      
-    <div class="row">
-      <div id="todo-stats" class="span8 offset2" />
+      <table id="todos" class="table table-bordered">
+        <tbody id="todo-list"></tbody>
+      </table>
     </div>
 
-    <hr class="span8 offset2" />
-    
-    <!--
     <div class="row">
-      <div id="credits" class="span8 offset2">
-          <p>Modularized by
-            <a href="http://backbonetutorials.com">Thomas Davis</a>.
-            Originally by 
-          <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.      
+      <div id="todo-stats" />
+    </div>
+
+    <div class="row">
+      <div id="credits" class="well">
+        Modularized by
+          <a href="http://backbonetutorials.com">Thomas Davis</a>.
+          Originally by 
+        <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.                
       </div>
     </div>    
-    -->
   </div>    
 </div>
-
 
 </body>
 </html>
