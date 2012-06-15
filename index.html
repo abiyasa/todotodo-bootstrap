@@ -1,58 +1,81 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Todo Todo App - Backbone - RequireJs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+  <meta name="description" content="">
+  <meta name="author" content="abiyasa">  
+  
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <style>
+      body {
+        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
+      }
+      
+      #todo-list .done {
+        text-decoration: line-through;
+      }
+      
+      #todo-stats {
+        margin-bottom: 10px;
+      }
+  </style>  
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="todotodo-bootstrap : List of TODO List." />
+  <script data-main="js/main" src="js/libs/require/require.js"></script>
+</head>
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+<body>
 
-    <title>todotodo-bootstrap</title>
-  </head>
-
-  <body>
-
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/abiyasa/todotodo-bootstrap">View on GitHub</a>
-
-          <h1 id="project_title">todotodo-bootstrap</h1>
-          <h2 id="project_tagline">List of TODO List.</h2>
-
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/abiyasa/todotodo-bootstrap/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/abiyasa/todotodo-bootstrap/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+<div id="todoapp">
+  <div class="container">
+    <div class="row">
+      <div class="page-header">
+        <h1>
+          Todo Todo
+          <small>Enough TODO for the rest of your life</small>
+        </h1>
+      </div>
     </div>
-
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>What Is This?</h3>
-
-<p>This my personal project to learn Backbone, RequireJS, and Twitter Bootstrap.</p>
-
-<p>The code is based from Addy Osmani's <a href="http://addyosmani.github.com/todomvc/">TodoMVC</a>, the one with 
-Backbone.JS + RequireJS. I modify it to work with Twitter Bootstrap so it works on desktop and mobile.</p>
-
-<h3>DEMO</h3>
-
-<p>Click here for demo</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">todotodo-bootstrap maintained by <a href="https://github.com/abiyasa">abiyasa</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
     
+    <div class="row">
+      <div id="create-todo" class="well">
+        <input id="new-todo" placeholder="What needs to be done?" type="text" class="span8"/>
+        <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to save this task</span>            
+      </div>
+    </div>
 
-  </body>
+    <div class="row">
+      <label class="checkbox">
+        <input class="mark-all-done" type="checkbox"/>
+        Mark all as complete
+      </label>
+    </div>
+    
+    <div class="row">
+      <table id="todos" class="table table-bordered">
+        <tbody id="todo-list"></tbody>
+      </table>
+    </div>
+
+    <div class="row">
+      <div id="todo-stats"></div>
+    </div>
+
+    <div class="row">
+      <div id="credits" class="well">
+        <p>
+          Modularized by
+            <a href="http://backbonetutorials.com">Thomas Davis</a>.
+            Originally by 
+          <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
+          View source on <a href="https://github.com/abiyasa/todotodo-bootstrap">GitHub</a>
+        </p>
+      </div>
+    </div>    
+  </div>    
+</div>
+
+</body>
 </html>
