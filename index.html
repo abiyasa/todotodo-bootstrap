@@ -1,81 +1,64 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Todo Todo App - Backbone - RequireJs</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-  <meta name="description" content="">
-  <meta name="author" content="abiyasa">  
-  
-  <link rel="stylesheet" href="css/bootstrap.css">
-  <style>
-      body {
-        padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-      }
-      
-      #todo-list .done {
-        text-decoration: line-through;
-      }
-      
-      #todo-stats {
-        margin-bottom: 10px;
-      }
-  </style>  
-  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="abiyasa">
 
-  <script data-main="js/main" src="js/libs/require/require.js"></script>
+    <title>Todo Todo App - Backbone - RequireJs</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="css/simple-todos.css">
+    
+    <script data-main="js/main" src="js/libs/require/require.js"></script>
 </head>
 
 <body>
-
-<div id="todoapp">
-  <div class="container">
-    <div class="row">
-      <div class="page-header">
-        <h1>
-          Todo Todo
-          <small>Enough TODO for the rest of your life</small>
-        </h1>
-      </div>
+    <div id="todoapp">        
+        <div class="container">            
+            <div class="row">
+                <div class="page-header">
+                    <h1>Todo Todo
+                        <small>Enough TODO for the rest of your life</small>
+                    </h1>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div id="create-todo" class="well">
+                    <input id="new-todo" placeholder="What needs to be done?" type="text" class="span8" />
+                    <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to save this task</span>
+                </div>
+            </div>
+            
+            <div class="row">
+                <label class="checkbox">
+                    <input class="mark-all-done" type="checkbox" />Mark all as complete</label>
+            </div>
+            
+            <div class="row">
+                <table id="todos" class="table table-bordered table-striped">
+                    <tbody id="todo-list"></tbody>
+                </table>
+            </div>
+            
+            <div class="row">
+                <div id="todo-stats"></div>
+            </div>
+            
+            <div class="row">
+                <div id="credits" class="well">
+                    <p>Modularized by
+                        <a href="http://backbonetutorials.com">Thomas Davis</a>. Originally by
+                        <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>. View source on
+                        <a href="https://github.com/abiyasa/todotodo-bootstrap">GitHub</a>
+                    </p>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <div class="row">
-      <div id="create-todo" class="well">
-        <input id="new-todo" placeholder="What needs to be done?" type="text" class="span8"/>
-        <span class="ui-tooltip-top help-inline" style="display:none;">Press Enter to save this task</span>            
-      </div>
-    </div>
-
-    <div class="row">
-      <label class="checkbox">
-        <input class="mark-all-done" type="checkbox"/>
-        Mark all as complete
-      </label>
-    </div>
-    
-    <div class="row">
-      <table id="todos" class="table table-bordered">
-        <tbody id="todo-list"></tbody>
-      </table>
-    </div>
-
-    <div class="row">
-      <div id="todo-stats"></div>
-    </div>
-
-    <div class="row">
-      <div id="credits" class="well">
-        <p>
-          Modularized by
-            <a href="http://backbonetutorials.com">Thomas Davis</a>.
-            Originally by 
-          <a href="http://jgn.me/">J&eacute;r&ocirc;me Gravel-Niquet</a>.
-          View source on <a href="https://github.com/abiyasa/todotodo-bootstrap">GitHub</a>
-        </p>
-      </div>
-    </div>    
-  </div>    
-</div>
-
 </body>
+
 </html>

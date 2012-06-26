@@ -13,6 +13,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/todos.html'], functi
         // The DOM events specific to an item.
         events: {
             "click .todo-content": "toggleDone",
+            "click .todo-indicator": "toggleDone",
             "click .todo-edit": "edit",
             "click .todo-destroy": "clear",
             "keypress .todo-input": "updateOnEnter",
@@ -41,7 +42,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/todos.html'], functi
         },
 
         // Switch this view into `"editing"` mode, displaying the input field.
-        edit: function () {
+        edit: function (event) {
             this.$('.edit-item').removeClass('hidden');
             this.$('.show-item').addClass('hidden');
             this.input.focus();

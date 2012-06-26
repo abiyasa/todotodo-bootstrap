@@ -1,19 +1,18 @@
 <td>
-  <div class="form-inline">
-    <div class="show-item">
-      <label class="checkbox todo-content span2">
-        <input type="checkbox" <%= done ? 'checked="checked"' : '' %> >
-        <div class="<%= done ? 'done' : '' %>"><%= content %></div>
-      </label> 
-      
-      <div class="pull-right">
-        <button class="todo-edit btn btn-small">Edit</button>
-        <button class="todo-destroy btn btn-small btn-danger">&times;</button>
-      </div>
+    <div class="show-item row-fluid">
+        <div class="todo-indicator pull-left item-buttons">
+            <span class="<%= done ? 'todo-done' : 'todo-not-done' %>"></span>            
+        </div>
+        
+        <span class="todo-content"><%= content %></span>
+            
+        <div class="pull-right item-buttons">
+            <span class="todo-edit"></span>
+            <span class="todo-destroy"></span>
+        </div>                
     </div>
-      
-    <div class="edit-item hidden">
-      <input class="todo-input" type="text" value="<%= content %>" />
+
+    <div class="edit-item input-append hidden">
+        <input type="text" class="todo-input input-medium" value="<%= content %>"><button type="submit" class="btn">Create</button>
     </div>
-  </div>
 </td>
