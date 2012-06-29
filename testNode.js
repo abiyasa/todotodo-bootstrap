@@ -10,5 +10,6 @@ app.configure(function(){
 });
 
 // starts
-app.listen(3000);
-console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
+var portNum = 3000;
+app.listen(portNum);
+console.log("Express server listening on port %d in %s mode", portNum, app.settings.env);
