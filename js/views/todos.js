@@ -40,11 +40,26 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/todos.html'], functi
         toggleDone: function () {
             this.model.toggle();
         },
+        
+        // switch the view mode between 'edit' and 'show'
+        switchMode: function (mode) {
+            switch (mode) {
+            case 'edit':
+                this.$('.edit-item').removeClass('hidden');
+                this.$('.show-item').addClass('hidden');
+                break;
+                    
+            case 'show':
+            default:
+                this.$('.edit-item').addClass('hidden');
+                this.$('.show-item').removeClass('hidden');
+                break;
+            }
+        },
 
         // Switch this view into `"editing"` mode, displaying the input field.
         edit: function (event) {
-            this.$('.edit-item').removeClass('hidden');
-            this.$('.show-item').addClass('hidden');
+            this.switchMode('edit');
             this.input.focus();
         },
 
@@ -53,8 +68,7 @@ define(['jquery', 'underscore', 'backbone', 'text!templates/todos.html'], functi
             this.model.save({
                 content: this.input.val()
             });
-            this.$('.edit-item').addClass('hidden');
-            this.$('.show-item').removeClass('hidden');
+            this.switchMode('show');
         },
 
         // If you hit `enter`, we're through editing the item.
