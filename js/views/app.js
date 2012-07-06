@@ -1,6 +1,6 @@
 /*jslint vars: true, plusplus: true, devel: true, nomen: true, indent: 4, forin: true, maxerr: 50, regexp: true */
 /*global define, $, FileError, brackets, window */
-define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 'text!templates/stats.html'], function ($, _, Backbone, Todos, TodoView, statsTemplate) {
+define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 'text!templates/stats.html', 'text!templates/markalldone.html'], function ($, _, Backbone, Todos, TodoView, statsTemplate, markAllDoneTemplate) {
     'use strict';
     var AppView = Backbone.View.extend({
 
@@ -10,13 +10,16 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
 
         // Our template for the line of statistics at the bottom of the app.
         statsTemplate: _.template(statsTemplate),
+        
+        // Our template for marking all todo done
+        markAllDoneTemplate: _.template(markAllDoneTemplate),
 
         // Delegated events for creating new items, and clearing completed ones.
         events: {
             "keypress #new-todo": "createOnEnter",
             "keyup #new-todo": "showTooltip",
             "click .todo-clear a": "clearCompleted",
-            "click .mark-all-done": "toggleAllComplete"
+            "click #mark-all-done": "toggleAllComplete"
         },
 
         // At initialization we bind to the relevant events on the `Todos`
@@ -26,7 +29,7 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
             _.bindAll(this, 'addOne', 'addAll', 'render', 'toggleAllComplete');
 
             this.input = this.$("#new-todo");
-            this.allCheckbox = this.$(".mark-all-done")[0];
+            this.allCheckbox = this.$("#mark-all-done");
 
             Todos.bind('add', this.addOne);
             Todos.bind('reset', this.addAll);
@@ -47,7 +50,10 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
                 remaining: remaining
             }));
 
-            this.allCheckbox.checked = !remaining;
+            this.allCheckbox.html(this.markAllDoneTemplate({
+                label: 'Mark all done',
+                checked: !remaining
+            }));
         },
 
         // Add a single todo item to the list by creating a view for it, and
@@ -111,7 +117,8 @@ define(['jquery', 'underscore', 'backbone', 'collections/todos', 'views/todos', 
 
         // Change each todo so that it's `done` state matches the check all
         toggleAllComplete: function () {
-            var done = this.allCheckbox.checked;
+            var done = Todos.remaining().length;
+            
             Todos.each(function (todo) {
                 todo.save({
                     'done': done
