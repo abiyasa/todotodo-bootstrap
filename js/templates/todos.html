@@ -1,14 +1,14 @@
 <td>
     <div class="show-item row-fluid">
         <div class="todo-indicator pull-left item-buttons">
-            <span class="<%= done ? 'todo-done' : 'todo-not-done' %>"></span>            
+            <i class="<%= done ? 'icon-check' : 'icon-check-empty' %> icon-large"></i>
         </div>
         
         <span class="todo-content"><%= content %></span>
             
         <div class="pull-right item-buttons">
-            <span class="todo-edit"></span>
-            <span class="todo-destroy"></span>
+            <span class="todo-edit"><i class="icon-pencil icon-large"></i></span>
+            <span class="todo-destroy"><i class="icon-remove icon-large"></i></span>
         </div>                
     </div>
 
